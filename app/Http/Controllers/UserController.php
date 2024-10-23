@@ -53,9 +53,14 @@ class UserController extends Controller
             'apellido' => 'required',
             'email' => 'required|email|unique:users,email,' . $id,
             'telefono' => 'required',
+            'estado' => 'required'
         ]);
 
         $user = User::findOrFail($id);
+        if (!$request->filled('password')) {
+            $request->merge(['password' => $user->password]);
+        }
+        
         $user->update($request->all());
 
         return redirect()->route('users.index')->with('success', 'Usuario actualizado correctamente');

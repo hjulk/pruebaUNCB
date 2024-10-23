@@ -30,6 +30,13 @@
             <label for="password">Contraseña</label>
             <input type="password" class="form-control" id="password" name="password" >
         </div>
+        <div class="form-group">
+            <label for="estado">Activo:</label>
+            <select name="estado" class="form-control">
+                <option value="1" {{ $user->estado ? 'selected' : '' }}>Sí</option>
+                <option value="0" {{ !$user->estado ? 'selected' : '' }}>No</option>
+            </select>
+        </div>
         <br>
         <button type="submit" class="btn btn-primary">Actualizar Usuario</button>
     </form>

@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('telefono');
             $table->string('password');
+            $table->boolean('estado')->default(true);
             $table->timestamps();
         });
 
@@ -30,6 +31,7 @@ return new class extends Migration
             'email' => 'admin@uncb.com',
             'telefono' => '123456789',
             'password' => bcrypt('admin1234'),
+            'estado' => true,
             'created_at' => now(),
             'updated_at' => now(),
         ]);
